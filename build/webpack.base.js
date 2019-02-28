@@ -19,7 +19,7 @@ var getHtmlConfig = function (name, chunks) {
     chunks: chunks,
     minify: process.env.NODE_ENV === "development" ? false : {
       removeComments: true, //移除HTML中的注释
-      collapseWhitespace: true, //折叠空白区域 也就是压缩代码
+      collapseWhitespace: true, //折叠空白区域
       removeAttributeQuotes: true, //去除属性引用
     }
   };
@@ -82,9 +82,9 @@ module.exports = {
     new purifyCssWebpack({
       paths: glob.sync(resolve("src/pages/*/*.html"))
     }),
-    new webpack.ProvidePlugin({
-      _: "underscore"
-    })
+    // new webpack.ProvidePlugin({
+    //   _: "underscore"
+    // })
   ]
 }
 
@@ -94,7 +94,6 @@ const htmlArray = [];
 Object.keys(entryObj).forEach(element => {
   htmlArray.push({
     _html: element,
-    title: element,
     chunks: ['vendor', element]
   })
 })
