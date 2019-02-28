@@ -23,7 +23,7 @@ const rules = [
       // 需要下载file-loader和url-loader
       loader: "url-loader",
       options: {
-        limit: 5 * 1024, //小于这个时将会已base64位图片打包处理
+        limit: 2 * 1024, //小于这个时将会已base64位图片打包处理
         // 图片文件输出的文件夹
         outputPath: "images"
       }
@@ -45,14 +45,5 @@ const rules = [
     test: /\.ejs$/,
     loader: 'ejs-html-loader'
   }
-  // {
-  //   test: /\.(html)$/,
-  //   use: {
-  //     loader: 'html-loader',
-  //     options: {
-  //       attrs: [':data-src']
-  //     }
-  //   }
-  // }
 ];
 module.exports = rules;
